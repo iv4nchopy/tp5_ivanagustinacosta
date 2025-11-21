@@ -1,11 +1,14 @@
+/* Reset básico */
 body, html {
     margin: 0;
     padding: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     height: 100%;
     overflow-x: hidden;
+    background: #000; /* Fondo fallback */
 }
 
+/* Fondo animado */
 .fondo-animado {
     position: fixed;
     width: 100%;
@@ -22,18 +25,20 @@ body, html {
     100% {background-position: 0% 50%;}
 }
 
+/* Container */
 .container {
     position: relative;
     max-width: 500px;
     margin: 80px auto;
     padding: 40px;
-    background: rgba(255,255,255,0.1);
+    background: rgba(0,0,0,0.6);
     border-radius: 20px;
     box-shadow: 0 0 20px rgba(0,0,0,0.5);
     text-align: center;
     color: white;
 }
 
+/* Títulos */
 .titulo {
     font-size: 2.5em;
     margin-bottom: 10px;
@@ -45,6 +50,7 @@ body, html {
     font-size: 1.2em;
 }
 
+/* Formulario */
 label {
     display: block;
     text-align: left;
@@ -59,7 +65,8 @@ input, select {
     border: none;
 }
 
-button.btn, button[type="submit"] {
+/* Botones */
+button, button[type="submit"] {
     margin-top: 20px;
     padding: 12px 25px;
     border-radius: 15px;
@@ -71,11 +78,12 @@ button.btn, button[type="submit"] {
     transition: all 0.3s ease;
 }
 
-button.btn:hover, button[type="submit"]:hover {
+button:hover, button[type="submit"]:hover {
     background: #6a11cb;
     transform: scale(1.05);
 }
 
+/* Mensajes */
 .mensaje {
     margin-top: 20px;
     font-weight: bold;
