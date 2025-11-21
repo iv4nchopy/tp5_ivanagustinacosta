@@ -5,10 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inscripción</title>
     <link rel="stylesheet" href="../styles.css">
+
+    <!-- EmailJS SDK -->
     <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script>
         emailjs.init("EdeNOwbMBpBqhSrMF");
     </script>
+
     <script defer src="../js/inscripcion.js"></script>
 </head>
 <body>
@@ -16,16 +19,17 @@
 
     <div class="container">
         <h1>Formulario de Inscripción</h1>
+
         <form id="formInscripcion">
             <label>Nombre:</label>
             <input type="text" name="nombre" required>
-            
+
             <label>Apellido:</label>
             <input type="text" name="apellido" required>
-            
+
             <label>Email:</label>
             <input type="email" name="email" required>
-            
+
             <label>Curso:</label>
             <select name="curso" required>
                 <option value="">Selecciona un curso</option>
