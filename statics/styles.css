@@ -59,7 +59,7 @@ input, select {
     border: none;
 }
 
-button.btn {
+button.btn, button[type="submit"] {
     margin-top: 20px;
     padding: 12px 25px;
     border-radius: 15px;
@@ -71,7 +71,7 @@ button.btn {
     transition: all 0.3s ease;
 }
 
-button.btn:hover {
+button.btn:hover, button[type="submit"]:hover {
     background: #6a11cb;
     transform: scale(1.05);
 }
