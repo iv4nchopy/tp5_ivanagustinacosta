@@ -5,15 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Inscripción</title>
   <link rel="stylesheet" href="../statics/styles.css">
-
-  <!-- EmailJS v4 -->
-  <script type="module">
-    import emailjs from 'https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js';
-    window.emailjs = emailjs;
-    emailjs.init("EdeNOwbMBpBqhSrMF"); // Tu Public Key
-  </script>
-
-  <script defer src="../js/inscripcion.js"></script>
 </head>
 <body>
   <div class="fondo-animado"></div>
@@ -40,11 +31,20 @@
               <option value="CSS">CSS</option>
           </select>
 
-          <button type="submit">Sign Up</button>
+          <button type="submit">Inscribirse</button>
       </form>
 
       <div id="mensajeEnvio" class="mensaje"></div>
       <button onclick="location.href='../index.html'">Volver a Inicio</button>
   </div>
+
+  <!-- 1️⃣ Cargar EmailJS como objeto global -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  
+  <!-- 2️⃣ Inicializar EmailJS y luego tu JS -->
+  <script>
+    emailjs.init("EdeNOwbMBpBqhSrMF"); // Tu Public Key
+  </script>
+  <script src="../js/inscripcion.js"></script>
 </body>
 </html>
