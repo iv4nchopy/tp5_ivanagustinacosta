@@ -1,49 +1,50 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inscripción</title>
-    <link rel="stylesheet" href="../styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inscripción</title>
+  <link rel="stylesheet" href="../statics/styles.css">
 
-    <!-- EmailJS SDK -->
-    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
-    <script>
-        emailjs.init("EdeNOwbMBpBqhSrMF");
-    </script>
+  <!-- EmailJS v4 -->
+  <script type="module">
+    import emailjs from 'https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js';
+    window.emailjs = emailjs;
+    emailjs.init("EdeNOwbMBpBqhSrMF"); // Tu Public Key
+  </script>
 
-    <script defer src="../js/inscripcion.js"></script>
+  <script defer src="../js/inscripcion.js"></script>
 </head>
 <body>
-    <div class="fondo-animado"></div>
+  <div class="fondo-animado"></div>
 
-    <div class="container">
-        <h1>Formulario de Inscripción</h1>
+  <div class="container">
+      <h1>Formulario de Inscripción</h1>
 
-        <form id="formInscripcion">
-            <label>Nombre:</label>
-            <input type="text" name="nombre" required>
+      <form id="formInscripcion">
+          <label>Nombre:</label>
+          <input type="text" name="nombre" required>
 
-            <label>Apellido:</label>
-            <input type="text" name="apellido" required>
+          <label>Apellido:</label>
+          <input type="text" name="apellido" required>
 
-            <label>Email:</label>
-            <input type="email" name="email" required>
+          <label>Email:</label>
+          <input type="email" name="email" required>
 
-            <label>Curso:</label>
-            <select name="curso" required>
-                <option value="">Selecciona un curso</option>
-                <option value="Python">Python</option>
-                <option value="SQL">SQL</option>
-                <option value="Java">Java</option>
-                <option value="CSS">CSS</option>
-            </select>
+          <label>Curso:</label>
+          <select name="curso" required>
+              <option value="">Selecciona un curso</option>
+              <option value="Python">Python</option>
+              <option value="SQL">SQL</option>
+              <option value="Java">Java</option>
+              <option value="CSS">CSS</option>
+          </select>
 
-            <button type="submit">Sign Up</button>
-        </form>
+          <button type="submit">Sign Up</button>
+      </form>
 
-        <div id="mensajeEnvio" class="mensaje"></div>
-        <button onclick="location.href='../index.html'">Volver a Inicio</button>
-    </div>
+      <div id="mensajeEnvio" class="mensaje"></div>
+      <button onclick="location.href='../index.html'">Volver a Inicio</button>
+  </div>
 </body>
 </html>
