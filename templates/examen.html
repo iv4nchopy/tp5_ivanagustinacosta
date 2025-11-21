@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Examen</title>
   <link rel="stylesheet" href="../statics/styles.css">
-  <script defer src="../js/examen.js"></script>
 </head>
 <body>
   <div class="fondo-animado"></div>
@@ -19,5 +18,10 @@
       </form>
       <button onclick="location.href='../index.html'">Volver a Inicio</button>
   </div>
+
+  <!-- 1️⃣ Cargar EmailJS antes de tu JS -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <!-- 2️⃣ Cargar tu JS de examen -->
+  <script defer src="../js/examen.js"></script>
 </body>
 </html>
