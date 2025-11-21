@@ -1,5 +1,5 @@
 const serviceID = "service_6dunyyq";
-const templateID = "template_je3remf"; // tu template para examen
+const templateID = "template_kbu100p"; // nuevo template de examen
 const publicKey = "EdeNOwbMBpBqhSrMF"; // tu public key
 
 document.addEventListener("DOMContentLoaded", () => {
