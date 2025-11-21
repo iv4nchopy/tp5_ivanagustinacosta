@@ -18,12 +18,14 @@ document.getElementById("formInscripcion").addEventListener("submit", function(e
     localStorage.setItem("emailUsuario", formData.email);
     localStorage.setItem("cursoUsuario", formData.curso);
 
-    // Enviar Email
+    // Enviar formulario con EmailJS
     emailjs.send(serviceID, templateID, formData, publicKey)
         .then(() => {
             document.getElementById("mensajeEnvio").innerText = "¡Inscripción enviada correctamente!";
             form.reset();
-            window.location.href = "examen.html"; // Redirige automáticamente al examen
+
+            // Redirigir automáticamente al examen
+            window.location.href = "examen.html";
         })
         .catch((err) => {
             console.error("Error al enviar:", err);
