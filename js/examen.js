@@ -1,7 +1,12 @@
 const serviceID = "service_6dunyyq";
-const templateID = "template_examen"; // Nuevo template para examen
+const templateID = "template_je3remf"; // tu template para examen
+const publicKey = "EdeNOwbMBpBqhSrMF"; // tu public key
 
 document.addEventListener("DOMContentLoaded", () => {
+    // Inicializar EmailJS
+    emailjs.init(publicKey);
+
+    // Recuperar datos del usuario
     const nombre = localStorage.getItem("nombreUsuario");
     const apellido = localStorage.getItem("apellidoUsuario");
     const email = localStorage.getItem("emailUsuario");
@@ -18,6 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const examenContainer = document.getElementById("examenContainer");
 
+    // Definir preguntas
     const preguntas = [
         { pregunta: "Lenguaje más usado", tipo: "opcion", opciones: ["Python", "Java", "C++", "Ruby"] },
         { pregunta: "Hardware es físico", tipo: "opcion", opciones: ["Verdadero", "Falso"] },
@@ -68,10 +74,11 @@ document.addEventListener("DOMContentLoaded", () => {
         examenContainer.appendChild(div);
     });
 
-    // Enviar respuestas por EmailJS
+    // Manejar envío
     document.getElementById("examenForm").addEventListener("submit", async function(e){
         e.preventDefault();
 
+        // Recopilar respuestas
         const respuestas = preguntas.map((p, index) => {
             const inputTexto = examenContainer.querySelector(`.pregunta:nth-child(${index+1}) input[type=text]`);
             if(inputTexto) return `Pregunta ${index+1} - ${p.pregunta}: ${inputTexto.value}`;
@@ -79,6 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
             return `Pregunta ${index+1} - ${p.pregunta}: ${inputRadio ? inputRadio.value : "No respondida"}`;
         });
 
+        // Parámetros para EmailJS
         const templateParams = {
             nombre,
             apellido,
@@ -90,11 +98,10 @@ document.addEventListener("DOMContentLoaded", () => {
         try {
             await emailjs.send(serviceID, templateID, templateParams);
             alert("Examen enviado correctamente!");
-            window.location.href = "../index.html";
+            window.location.href = "../index.html"; // redirige al inicio
         } catch(err) {
             console.error("Error al enviar examen:", err);
             alert("Error al enviar el examen, intenta nuevamente.");
         }
     });
-
 });
