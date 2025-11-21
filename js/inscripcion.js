@@ -1,34 +1,28 @@
 const serviceID = "service_6dunyyq";
 const templateID = "template_je3remf";
-const publicKey = "EdeNOwbMBpBqhSrMF";
 
-document.getElementById("formInscripcion").addEventListener("submit", function(e) {
+document.getElementById("formInscripcion").addEventListener("submit", async function(e) {
     e.preventDefault();
-
     const form = e.target;
-    const formData = {
+
+    const templateParams = {
         nombre: form.nombre.value,
         apellido: form.apellido.value,
         email: form.email.value,
         curso: form.curso.value
     };
 
-    // Guardar datos en localStorage
-    localStorage.setItem("nombreUsuario", formData.nombre + " " + formData.apellido);
-    localStorage.setItem("emailUsuario", formData.email);
-    localStorage.setItem("cursoUsuario", formData.curso);
+    // Guardar datos localmente
+    localStorage.setItem("nombreUsuario", templateParams.nombre + " " + templateParams.apellido);
+    localStorage.setItem("emailUsuario", templateParams.email);
+    localStorage.setItem("cursoUsuario", templateParams.curso);
 
-    // Enviar formulario con EmailJS
-    emailjs.send(serviceID, templateID, formData, publicKey)
-        .then(() => {
-            document.getElementById("mensajeEnvio").innerText = "¡Inscripción enviada correctamente!";
-            form.reset();
-
-            // Redirigir automáticamente al examen
-            window.location.href = "examen.html";
-        })
-        .catch((err) => {
-            console.error("Error al enviar:", err);
-            document.getElementById("mensajeEnvio").innerText = "Error al enviar el formulario. Intenta nuevamente.";
-        });
+    try {
+        await emailjs.send(serviceID, templateID, templateParams);
+        form.reset();
+        window.location.href = "examen.html"; // Redirige al examen
+    } catch (err) {
+        console.error("Error al enviar:", err);
+        document.getElementById("mensajeEnvio").innerText = "Error al enviar el formulario. Intenta nuevamente.";
+    }
 });
