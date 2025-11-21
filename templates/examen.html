@@ -4,20 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Examen</title>
-
-    <link rel="stylesheet" href="../statics/styles.css">
+    <link rel="stylesheet" href="../styles.css">
     <script defer src="../js/examen.js"></script>
 </head>
 <body>
+    <div class="fondo-animado"></div>
 
-    <div class="form-container">
-        <h2>Examen</h2>
-
-        <p>Bienvenido al área de exámenes.</p>
-
-        <button class="btn" onclick="mostrarMensaje()">Comenzar Examen</button>
-        <button class="btn" onclick="location.href='../index.html'">Inicio</button>
+    <div class="container">
+        <h1>Examen</h1>
+        <div id="mensajeUsuario" class="mensaje"></div>
+        <p>Aquí irán las preguntas del examen...</p>
+        <button onclick="location.href='../index.html'">Volver a Inicio</button>
     </div>
-
 </body>
 </html>
