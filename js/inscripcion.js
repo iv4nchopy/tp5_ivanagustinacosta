@@ -23,8 +23,7 @@ document.getElementById("formInscripcion").addEventListener("submit", function(e
         .then(() => {
             document.getElementById("mensajeEnvio").innerText = "¡Inscripción enviada correctamente!";
             form.reset();
-            // Redirigir al examen automáticamente
-            window.location.href = "examen.html";
+            window.location.href = "examen.html"; // Redirige automáticamente al examen
         })
         .catch((err) => {
             console.error("Error al enviar:", err);
