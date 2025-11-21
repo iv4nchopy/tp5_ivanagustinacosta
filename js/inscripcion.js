@@ -1,5 +1,10 @@
+// Tus IDs de EmailJS
 const serviceID = "service_6dunyyq";
 const templateID = "template_je3remf";
+const publicKey = "EdeNOwbMBpBqhSrMF"; // tu public key
+
+// Inicializar EmailJS
+emailjs.init(publicKey);
 
 document.getElementById("formInscripcion").addEventListener("submit", async function(e) {
     e.preventDefault();
@@ -21,10 +26,11 @@ document.getElementById("formInscripcion").addEventListener("submit", async func
     localStorage.setItem("emailUsuario", email);
     localStorage.setItem("cursoUsuario", curso);
 
-    // Enviar datos a EmailJS (opcional si quieres registrar inscripción)
+    // Enviar datos a EmailJS
     const templateParams = { nombre, apellido, email, curso };
     try {
         await emailjs.send(serviceID, templateID, templateParams);
+        alert("Inscripción enviada correctamente!");
         window.location.href = "examen.html"; // Redirigir al examen
     } catch (err) {
         console.error("Error al enviar inscripción:", err);
